@@ -10,6 +10,7 @@ import "./App.css";
 
 import SideNav from "./components/SideNav"
 import Home from "./components/Home"
+import CurrencyCard from "./components/CurrencyCard"
 
 function App() {
   return (
@@ -19,12 +20,19 @@ function App() {
           <SideNav
             items={[
               { title: "Home", path: "/home" },
+              { title: "Bitcoin (BTC)", path: "/forex/BTC/CHF" },
+              { title: "Ethereum (ETH)", path: "/forex/ETH/CHF" },
+              { title: "0x (ZRX)", path: "/forex/ZRX/CHF" },
+              { title: "Ripple (XRP)", path: "/forex/XRP/CHF" },
+              { title: "Stellar (XLM)", path: "/forex/XLM/CHF" },
+              { title: "EOS (EOS)", path: "/forex/EOS/CHF" },
             ]}
           />
         </Col>
         <Col sm={10}>
           <Switch>
             <Route path="/home" component={Home} />
+            <Route path="/forex/:from/:to" component={CurrencyCard} />
             <Redirect from="/" exact to="/home" />
             <Redirect to="/not-found" />
           </Switch>
